@@ -231,8 +231,7 @@ public class MainActivity extends AppCompatActivity {
     void requestSDPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             this.requestPermissions(
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission
-                            .ACCESS_FINE_LOCATION,
+                    new String[]{
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     102);
