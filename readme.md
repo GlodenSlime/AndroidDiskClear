@@ -14,6 +14,6 @@
     别名: diskclear
     密码: 88888888
 
-### 查看整数信息
+### 查看证书信息
     keytool -list -keystore diskclear.jks -alias diskclear -v
 
