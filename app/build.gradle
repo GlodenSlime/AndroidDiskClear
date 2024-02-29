@@ -1,0 +1,98 @@
+import java.text.SimpleDateFormat
+
+static def getCurTime() {
+    return new SimpleDateFormat("yyyyMMdd-HHmm").format(new Date())
+}
+
+plugins {
+    id 'com.android.application'
+    id 'org.greenrobot.greendao'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.goldslime.diskclean"
+        minSdkVersion 22
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0.2"
+        buildConfigField("String", "BuildTime", "\"${getCurTime()}\"")
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'diskclear'
+            keyPassword '88888888'
+            storeFile file('../diskclear.jks')
+            storePassword '88888888'
+        }
+        debug {
+            keyAlias 'diskclear'
+            keyPassword '88888888'
+            storeFile file('../diskclear.jks')
+            storePassword '88888888'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-vandroid-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name == "release") {
+                getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/app/release")
+                outputFileName = "AndroidDiskClear-${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'org.jetbrains:annotations:16.0.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'me.jessyan:autosize:1.2.1' //https://github.com/JessYanCoding/AndroidAutoSize
+    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4'
+
+    implementation 'com.blankj:utilcodex:1.30.6'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    implementation 'com.blankj:utilcodex:1.30.6'
+
+    implementation 'me.jahnen:libaums:0.8.0'
+
+}

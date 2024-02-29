@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="settings_top_height">60dp</dimen>
+    <dimen name="title_back_img_size">25dp</dimen>
+    <dimen name="menu_width">200dp</dimen>
+    <dimen name="left_menu_height">65dp</dimen>
+    <dimen name="left_menu_hair">8dp</dimen>
+    <dimen name="left_menu_margin_top">10dp</dimen>
+    <dimen name="left_menu_font_size">21sp</dimen>
+    <dimen name="setting_font_size_large">22sp</dimen>
+    <dimen name="setting_font_size_middle">20sp</dimen>
+    <dimen name="setting_font_size_small">18sp</dimen>
+    <dimen name="dialog_icon_size">60dp</dimen>
+    <dimen name="dialog_title_font_size">22sp</dimen>
+    <dimen name="error_tip_font_size">20sp</dimen>
+</resources>

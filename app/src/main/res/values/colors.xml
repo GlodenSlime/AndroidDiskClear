@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_primary">#2577C3</color>
+    <color name="menu_line_color">#E5F1F9</color>
+    <color name="loginColor">#2a6ba5</color>
+    <color name="dark_blue">#2577C3</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="choose_item">#80daecf8</color>
+    <color name="shadow_color">#000</color>
+    <color name="red">#cc0000</color>
+    <color name="grey_button">#FFEBEBEB</color>
+    <color name="left_menu_item_chose_color">#2577C3</color>
+    <color name="left_menu_item_color">#7CACD6</color>
+    <color name="left_menu_item_color_hair">#FF9702</color>
+    <color name="font_color">#333333</color>
+    <color name="font_color_gray">#666666</color>
+    <color name="error_tip_color">#FF1919</color>
+    <color name="alpha_blue">#8078B5ED</color>
+    <color name="spinner_divider">#FFE6E6E6</color>
+    <color name="listView_item">#FF6EB5E3</color>
+    <color name="select_col_divider">#F1F1F1</color>
+</resources>
