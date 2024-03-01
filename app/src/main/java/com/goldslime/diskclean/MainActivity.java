@@ -1,13 +1,16 @@
 package com.goldslime.diskclean;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.PowerManager;
 import android.os.StatFs;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     long remainSize = 0;
     long totalRemainSize = 0;
     String filePath = "";
+    private PowerManager.WakeLock wakeLock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,6 +201,23 @@ public class MainActivity extends AppCompatActivity {
         if (!canReadWrite()) {
             showTip();
         }
+
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "ScreenOnService:wakeLock");
+
+        CheckBox cb_screen_on = findViewById(R.id.cb_screen_on);
+        cb_screen_on.findViewById(R.id.cb_screen_on).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (cb_screen_on.isChecked()) {
+                    wakeLock.acquire();
+                    Toast.makeText(MainActivity.this, "已开启屏幕常亮", Toast.LENGTH_SHORT).show();
+                } else {
+                    wakeLock.acquire();
+                    Toast.makeText(MainActivity.this, "已关闭屏幕常亮", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     void showTip() {
